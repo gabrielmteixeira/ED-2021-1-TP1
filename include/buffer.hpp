@@ -1,6 +1,8 @@
 #ifndef BUFFER
 #define BUFFER
 #include <string>
+#include <iostream>
+#include "celula.hpp"
 
 class Buffer {
 
@@ -10,27 +12,16 @@ class Buffer {
 
     int getTamanho();
     bool vazia();
-    void enfileira(std::string);
+    void enfileira(std::string item);
+    void furaFila(int posicao);
     std::string desinfileira();
     void imprime();
     void limpa();
 
   private:
     int tamanho;
-    Celula* frente;
-    Celula* tras;
-};
-
-class Celula {
-
-  public:
-    Celula();
-
-  private:
-    std::string item;
-    Celula *prox;
-
-  friend class Buffer;
+    Celula<std::string>* frente;
+    Celula<std::string>* tras;
 };
 
 #endif
