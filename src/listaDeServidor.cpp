@@ -28,6 +28,10 @@ Celula<Buffer>* ListaDeServidor::getServidor(int posicao) {
   return celula;
 }
 
+int ListaDeServidor::getTamanho() {
+  return this->tamanho;
+}
+
 void ListaDeServidor::insereFinal() {
   Celula<Buffer>* nova = new Celula<Buffer>();
   this->ultimo->prox = nova;

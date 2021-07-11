@@ -1,4 +1,6 @@
 #include "../include/buffer.hpp"
+#include "../include/listaDeServidor.hpp"
+#include "../include/sistema.hpp"
 
 int main() {
 

@@ -11,6 +11,7 @@ class ListaDeServidor {
     ~ListaDeServidor();
 
     Celula<Buffer>* getServidor(int posicao);
+    int getTamanho();
     void insereFinal();
     void limpa();
   

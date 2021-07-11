@@ -54,11 +54,11 @@ std::string Buffer::desinfileira() {
 
   if(tamanho == 0) throw "Fila está vazia!";
 
-  valor = frente->prox->item;
-  celula = frente;
-  frente = frente->prox;
+  valor = this->frente->prox->item;
+  celula = this->frente;
+  this->frente = this->frente->prox;
   delete celula;
-  tamanho--;
+  this->tamanho--;
 
   return valor;
 }

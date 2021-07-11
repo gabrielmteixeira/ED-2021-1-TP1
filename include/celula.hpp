@@ -1,7 +1,8 @@
 #ifndef CELULA
 #define CELULA
 #include "buffer.hpp"
-// #include "sistema.hpp"
+#include "listaDeServidor.hpp"
+#include "sistema.hpp"
 
 template<class T> class Celula {
 
@@ -17,6 +18,7 @@ template<class T> class Celula {
 
   friend class Buffer;
   friend class ListaDeServidor;
+  friend class Sistema;
 };
 
 #endif
