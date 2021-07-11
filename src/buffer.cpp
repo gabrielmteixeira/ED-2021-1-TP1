@@ -23,21 +23,23 @@ void Buffer::enfileira(std::string item) {
   Celula<std::string>* nova;
   nova = new Celula<std::string>();
   nova->item = item;
-  if(this->tamanho)
   this->tras->prox = nova;
   this->tras = nova;
   this->tamanho++;
 }
 
 void Buffer::furaFila(int posicao) {
+  if((posicao >= this->tamanho) || (posicao < 0)) {
+    throw "Erro: Posicao invalida!";
+  }
+  
   Celula<std::string>* celula = this->frente->prox;
   Celula<std::string>* anterior;
-
   for(int i = 0; i < posicao; i++) {
-
-    if(i = (posicao - 1)) {
+    if(i == (posicao - 1)) {
       anterior = celula;
     }
+
     celula = celula->prox;
   }
 
@@ -57,6 +59,7 @@ std::string Buffer::desinfileira() {
   frente = frente->prox;
   delete celula;
   tamanho--;
+
   return valor;
 }
 
