@@ -2,8 +2,6 @@
 #ifndef SISTEMA
 #define SISTEMA
 #include "buffer.hpp"
-#include "listaDeServidor.hpp"
-#include "celula.hpp"
 
 class Sistema {
 
@@ -13,14 +11,15 @@ class Sistema {
 
     void info(int indiceServidor, std::string dados);
     void warn(int indiceServidor, int posicaoItem);
-    void trans(int indiceServidor1, int indiceServidor2);
+    void tran(int indiceServidor1, int indiceServidor2);
     void erro(int indiceServidor);
     void send();
     void flush();
 
   private:
-    ListaDeServidor* Servidores;
+    Buffer* Servidores;
     Buffer historico;
+    int numeroDeServidores;
 };
 
 #endif

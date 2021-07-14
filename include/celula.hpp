@@ -1,8 +1,5 @@
 #ifndef CELULA
 #define CELULA
-#include "buffer.hpp"
-#include "listaDeServidor.hpp"
-#include "sistema.hpp"
 
 template<class T> class Celula {
 
