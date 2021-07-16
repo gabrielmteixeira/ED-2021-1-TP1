@@ -19,8 +19,7 @@ int main (int argc, char* argv[]) {
         std::string servidor = texto.substr(5, texto.find("\"") - 6);
         sistema.info(std::stoi(servidor), dado);
 
-      } 
-      else if(comando == "WARN") {
+      } else if(comando == "WARN") {
         std::string servidorPosicao = texto.substr(5, texto.size() - 6);
         std::string servidor, posicao;
         bool passou = false;
@@ -35,8 +34,7 @@ int main (int argc, char* argv[]) {
         }
         sistema.warn(std::stoi(servidor), std::stoi(posicao));
 
-      } 
-      else if(comando == "TRAN") {
+      } else if(comando == "TRAN") {
         std::string servidorPosicao = texto.substr(5, texto.size() - 6);
         std::string servidor1, servidor2;
         bool passou = false;
@@ -51,17 +49,14 @@ int main (int argc, char* argv[]) {
         }
         sistema.tran(std::stoi(servidor1), std::stoi(servidor2));
 
-      } 
-      else if(comando == "ERRO") {
+      } else if(comando == "ERRO") {
         std::string servidor = texto.substr(5, texto.size() - 6);
         std::cout << "ERRO " << servidor << std::endl;
         sistema.erro(std::stoi(servidor));
 
-      } 
-      else if((comando == "SEND\r") || (comando == "SEND")) {
+      } else if((comando == "SEND\r") || (comando == "SEND")) {
         sistema.send();
-      } 
-      else if((comando == "FLUSH\r") || (comando == "FLUSH")) {
+      } else if((comando == "FLUSH\r") || (comando == "FLUSH")) {
         sistema.flush();
       }
     }
