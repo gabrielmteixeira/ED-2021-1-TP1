@@ -7,15 +7,42 @@
 class Buffer {
 
   public:
-    Buffer();
-    ~Buffer();
 
+    // Atribui a 'tamanho' o valor 0, inicializa 'frente' com uma instância de
+    // 'Celula' alocada dinamicamente e atribui a 'tras' o valor de 'frente'
+    Buffer();
+
+    // Chama o método 'limpa()' e utiliza a função 'delete' para deletar
+    // 'frente'
+    ~Buffer();
+    
+    // Retorna o valor inteiro do atributo 'tamanho'
     int getTamanho();
+
+    // Retorna um valor booleano (0 ou 1) referente ao buffer estar vazio ou
+    // não (retorna 1 se 'tamanho' for igual a 0)
     bool vazia();
+
+    // Adiciona uma célula, contendo a string passada através do parâmetro
+    // 'item', no final do buffer e encrementa o valor de 'tamanho' em 1
     void enfileira(std::string item);
+
+    // Posiciona a célula referente à posição passada como parâmetro (tendo 0
+    // como índice da primeira célula que armazena um dado) na primeira posição
+    // do buffer (indicada por 'frente->prox')
     void furaFila(int posicao);
+
+    // Remove a primeira célula do buffer (frente->prox), retorna a string que
+    // ela armazena e reduz em 1 o valor de 'tamanho'
     std::string desinfileira();
+
+    // Imprime a string armazenada por todas as células do buffer (sendo
+    // frente->prox a primeira), seguindo a política FIFO
     void imprime();
+
+    // Utiliza a função 'delete' para deletar todas as células do buffer 
+    // (a partir de frente->prox), então define 'tamanho' como 0 e 
+    // atribui 'frente' a 'tamanho'
     void limpa();
 
   private:

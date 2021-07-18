@@ -3,7 +3,11 @@
 #include <fstream>
 #include "sistema.hpp"
 
-
+// Função main que recebe como um dos parâmetros os arquivos de entrada.
+// Trata a entrada, inicializando uma instância da classe 'Sistema', passando
+// como parâmetro para o construtor o valor da primeira linha do arquivo de
+// entrada. Chama, a partir da instância de 'sistema' mencionada anteriormente,
+// cada método especificado em cada linha da entrada.
 int main (int argc, char* argv[]) {
   std::ifstream entrada(argv[1]);
   std::string texto;
