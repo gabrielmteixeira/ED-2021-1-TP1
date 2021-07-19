@@ -54,7 +54,8 @@ class Sistema {
     // Imprime o valor armazenado por cada célula de 'historico', para depois
     // imprimir os valores armazenados nas células de cada buffer armazenado no
     // array de Buffer apontado por 'Servidores', um buffer por vez. As 
-    // impressões das células seguem a política FIFO
+    // impressões das células seguem a política FIFO. O método 'limpa()' é
+    // chamado após a impressão do conteúdo de cada buffer, a fim de esvaziá-lo.
     void flush();
 
   private:

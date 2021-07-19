@@ -61,9 +61,11 @@ void Sistema::send() {
 
 void Sistema::flush() {
   this->historico.imprime();
+  this->historico.limpa();
   for(int i = 0; i < this->numeroDeServidores; i++) {
     if(this->Servidores[i].getTamanho() != 0) {
       this->Servidores[i].imprime();
+      this->Servidores[i].limpa();
     }
   }
 }
