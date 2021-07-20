@@ -11,7 +11,7 @@ Sistema::~Sistema() {
 
 void Sistema::info(int indiceServidor, std::string dados) {
   if((indiceServidor >= this->numeroDeServidores) ||
-   (indiceServidor < 0)) {
+   (indiceServidor < 0)) {  
     throw "Erro: Índice invalido!";
   }
 
@@ -22,9 +22,12 @@ void Sistema::warn(int indiceServidor, int posicaoItem) {
   if((indiceServidor >= this->numeroDeServidores) ||
     (indiceServidor < 0) ||
     (posicaoItem >= this->servidores[indiceServidor].getTamanho()) ||
-    (posicaoItem < 0)) {
-      throw "Erro: Índice invalido!";      
+    (posicaoItem < 0)) {   
+      throw "Erro: Índice invalido!";
+  } else if(posicaoItem == 0) {
+    return;
   }
+
   this->servidores[indiceServidor].furaFila(posicaoItem);
 }
 
@@ -35,6 +38,7 @@ void Sistema::tran(int indiceServidor1, int indiceServidor2) {
    (indiceServidor2 < 0)) {
     throw "Erro: Índice invalido!";
   }
+
   while(this->servidores[indiceServidor1].getTamanho() != 0) {
     this->servidores[indiceServidor2].enfileira(
       this->servidores[indiceServidor1].desenfileira());
@@ -46,6 +50,7 @@ void Sistema::erro(int indiceServidor) {
    (indiceServidor < 0)) {
     throw "Erro: Índice invalido!";
   }
+
   while(this->servidores[indiceServidor].getTamanho() != 0) {
     std::cout << this->servidores[indiceServidor].desenfileira() << std::endl;
   }
