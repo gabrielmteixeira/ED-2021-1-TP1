@@ -2,11 +2,11 @@
 
 Sistema::Sistema(int numeroDeServidores) {
   this->numeroDeServidores = numeroDeServidores;
-  this->Servidores = new Buffer[numeroDeServidores];
+  this->servidores = new Buffer[numeroDeServidores];
 }
 
 Sistema::~Sistema() {
-  delete[] this->Servidores;
+  delete[] this->servidores;
 }
 
 void Sistema::info(int indiceServidor, std::string dados) {
@@ -15,17 +15,17 @@ void Sistema::info(int indiceServidor, std::string dados) {
     throw "Erro: Índice invalido!";
   }
 
-  this->Servidores[indiceServidor].enfileira(dados);
+  this->servidores[indiceServidor].enfileira(dados);
 }
 
 void Sistema::warn(int indiceServidor, int posicaoItem) {
   if((indiceServidor >= this->numeroDeServidores) ||
     (indiceServidor < 0) ||
-    (posicaoItem >= this->Servidores[indiceServidor].getTamanho()) ||
+    (posicaoItem >= this->servidores[indiceServidor].getTamanho()) ||
     (posicaoItem < 0)) {
       throw "Erro: Índice invalido!";      
   }
-  this->Servidores[indiceServidor].furaFila(posicaoItem);
+  this->servidores[indiceServidor].furaFila(posicaoItem);
 }
 
 void Sistema::tran(int indiceServidor1, int indiceServidor2) {
@@ -35,9 +35,9 @@ void Sistema::tran(int indiceServidor1, int indiceServidor2) {
    (indiceServidor2 < 0)) {
     throw "Erro: Índice invalido!";
   }
-  while(this->Servidores[indiceServidor1].getTamanho() != 0) {
-    this->Servidores[indiceServidor2].enfileira(
-      this->Servidores[indiceServidor1].desinfileira());
+  while(this->servidores[indiceServidor1].getTamanho() != 0) {
+    this->servidores[indiceServidor2].enfileira(
+      this->servidores[indiceServidor1].desenfileira());
   }
 }
 
@@ -46,15 +46,15 @@ void Sistema::erro(int indiceServidor) {
    (indiceServidor < 0)) {
     throw "Erro: Índice invalido!";
   }
-  while(this->Servidores[indiceServidor].getTamanho() != 0) {
-    std::cout << this->Servidores[indiceServidor].desinfileira() << std::endl;
+  while(this->servidores[indiceServidor].getTamanho() != 0) {
+    std::cout << this->servidores[indiceServidor].desenfileira() << std::endl;
   }
 }
 
 void Sistema::send() {
   for(int i = 0; i < this->numeroDeServidores; i++) {
-    if(this->Servidores[i].getTamanho() != 0) {
-      this->historico.enfileira(this->Servidores[i].desinfileira());
+    if(this->servidores[i].getTamanho() != 0) {
+      this->historico.enfileira(this->servidores[i].desenfileira());
     }
   }
 }
@@ -63,9 +63,9 @@ void Sistema::flush() {
   this->historico.imprime();
   this->historico.limpa();
   for(int i = 0; i < this->numeroDeServidores; i++) {
-    if(this->Servidores[i].getTamanho() != 0) {
-      this->Servidores[i].imprime();
-      this->Servidores[i].limpa();
+    if(this->servidores[i].getTamanho() != 0) {
+      this->servidores[i].imprime();
+      this->servidores[i].limpa();
     }
   }
 }

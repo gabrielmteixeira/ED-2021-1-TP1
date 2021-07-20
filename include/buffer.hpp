@@ -8,8 +8,9 @@ class Buffer {
 
   public:
 
-    // Atribui a 'tamanho' o valor 0, inicializa 'frente' com uma instância de
-    // 'Celula' alocada dinamicamente e atribui a 'tras' o valor de 'frente'
+    // Atribui a 'tamanho' o valor 0, inicializa 'frente' com o endereço de
+    // memória de uma instância de 'Celula' alocada dinamicamente e atribui a 
+    // 'tras' o valor de 'frente'
     Buffer();
 
     // Chama o método 'limpa()' e utiliza a função 'delete' para deletar
@@ -24,7 +25,7 @@ class Buffer {
     bool vazia();
 
     // Adiciona uma célula, contendo a string passada através do parâmetro
-    // 'item', no final do buffer e encrementa o valor de 'tamanho' em 1
+    // 'item', no final do buffer e incrementa o valor de 'tamanho' em 1
     void enfileira(std::string item);
 
     // Posiciona a célula referente à posição passada como parâmetro (tendo 0
@@ -34,7 +35,7 @@ class Buffer {
 
     // Remove a primeira célula do buffer (frente->prox), retorna a string que
     // ela armazena e reduz em 1 o valor de 'tamanho'
-    std::string desinfileira();
+    std::string desenfileira();
 
     // Imprime a string armazenada por todas as células do buffer (sendo
     // frente->prox a primeira), seguindo a política FIFO

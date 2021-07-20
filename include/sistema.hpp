@@ -8,24 +8,24 @@ class Sistema {
   public:
 
     // Inicializa 'numeroDeServidores' como o valor inteiro do parâmetro
-    // 'numeroDeServidores' e instância um array de Buffer (com 
-    // o tamanho equivalente a 'numeroDeServidores') dinâmicamente e atribui 
-    // seu endereço de memória ao ponteiro de Buffer 'Servidores'
+    // 'numeroDeServidores', instancia um array de Buffer (com 
+    // o tamanho equivalente a 'numeroDeServidores') dinamicamente e atribui 
+    // seu endereço de memória ao ponteiro de Buffer 'servidores'
     Sistema(int numeroDeServidores);
 
     // Utiliza da função 'delete' para deletar o array de Buffer apontado
-    // por 'Servidores'
+    // por 'servidores'
     ~Sistema();
 
     // Adiciona uma célula no final do Buffer armazenado na posição referente
     // ao parâmetro inteiro 'indiceServidor' do array de Buffer apontado por 
-    // 'Servidores'. Essa nova célula armazena o valor da variável de string
+    // 'servidores'. Essa nova célula armazena o valor da variável de string
     // 'dados', passada como parâmetro para o método 
     void info(int indiceServidor, std::string dados);
 
     // Recebe como parâmetros os inteiros 'indiceServidor' e 'posicaoItem'.
     // Acessa o buffer armazenado na posição 'indiceServidor' do array de Buffer
-    // apontado por 'Servidores' e passa para a frente do buffer (frente->prox)
+    // apontado por 'servidores' e passa para a frente do buffer (frente->prox)
     // a célula na posição referente ao valor 'posicaoItem'
     void warn(int indiceServidor, int posicaoItem);
 
@@ -39,27 +39,28 @@ class Sistema {
     void tran(int indiceServidor1, int indiceServidor2);
 
     // Recebe como parâmetro o inteiro 'indiceServidor'. Acessa o buffer de
-    // posição 'indiceServidor' do array de Buffer apontado por 'Servidores', 
+    // posição 'indiceServidor' do array de Buffer apontado por 'servidores', 
     // remove cada célula que ele contém, seguindo a política FIFO, e imprime
     // seu valor
     void erro(int indiceServidor);
 
     // Remove a célula da primeira posição (frente->prox) de cada buffer
-    // armazenado no array de Buffer apontado por 'Servidores' e adiciona novas
+    // armazenado no array de Buffer apontado por 'servidores' e adiciona novas
     // no Buffer 'historico', uma para cada removida (os valores armazenados
     // nas novas células de 'historico' são os mesmos que eram armazenados por
-    // aquelas removidas dos buffers de 'Servidores')
+    // aquelas removidas dos buffers de 'servidores')
     void send();
 
     // Imprime o valor armazenado por cada célula de 'historico', para depois
     // imprimir os valores armazenados nas células de cada buffer armazenado no
-    // array de Buffer apontado por 'Servidores', um buffer por vez. As 
+    // array de Buffer apontado por 'servidores', um buffer por vez. As 
     // impressões das células seguem a política FIFO. O método 'limpa()' é
-    // chamado após a impressão do conteúdo de cada buffer, a fim de esvaziá-lo.
+    // chamado após a impressão do conteúdo de cada buffer(contando com
+    // 'historico'), a fim de esvaziá-lo.
     void flush();
 
   private:
-    Buffer* Servidores;
+    Buffer* servidores;
     Buffer historico;
     int numeroDeServidores;
 };

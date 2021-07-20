@@ -48,7 +48,7 @@ void Buffer::furaFila(int posicao) {
   this->frente->prox = celula;
 }
 
-std::string Buffer::desinfileira() {
+std::string Buffer::desenfileira() {
   Celula<std::string>* celula;
   std::string valor;
 
