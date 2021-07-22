@@ -15,10 +15,6 @@ int Buffer::getTamanho() {
   return this->tamanho;
 }
 
-bool Buffer::vazia() {
-  return this->tamanho == 0;
-}
-
 void Buffer::enfileira(std::string item) {
   Celula<std::string>* nova;
   nova = new Celula<std::string>();
@@ -49,11 +45,10 @@ void Buffer::furaFila(int posicao) {
 }
 
 std::string Buffer::desenfileira() {
-  Celula<std::string>* celula;
-  std::string valor;
-
   if(tamanho == 0) throw "Fila está vazia!";
 
+  Celula<std::string>* celula;
+  std::string valor;
   valor = this->frente->prox->item;
   celula = this->frente;
   this->frente = this->frente->prox;
@@ -64,6 +59,8 @@ std::string Buffer::desenfileira() {
 }
 
 void Buffer::imprime() {
+  if(this->tamanho == 0) return;
+  
   Celula<std::string>* celula = this->frente->prox;
   for(int i = 0; i < this->tamanho; i++) {
     std::cout << celula->item << std::endl;

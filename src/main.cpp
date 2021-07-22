@@ -24,9 +24,10 @@ int main (int argc, char* argv[]) {
       if(texto[tamanho - 1] == '\r') {
         tamanho--;
       }
+
       std::string delimitador = " ";
       std::string comando = texto.substr(0, texto.find(delimitador));
-
+      
       if(comando == "INFO") {
 
         // O tamanho da substring é definido como 'tamanho - 9' pois 9 é número
@@ -99,8 +100,10 @@ int main (int argc, char* argv[]) {
 
       } else if((comando == "SEND\r") || (comando == "SEND")) {
         sistema.send();
+
       } else if((comando == "FLUSH\r") || (comando == "FLUSH")) {
         sistema.flush();
+
       }
     }
   } catch(const char* error) {

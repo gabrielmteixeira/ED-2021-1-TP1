@@ -20,10 +20,6 @@ class Buffer {
     // Retorna o valor inteiro do atributo 'tamanho'
     int getTamanho();
 
-    // Retorna um valor booleano (0 ou 1) referente ao buffer estar vazio ou
-    // não (retorna 1 se 'tamanho' for igual a 0)
-    bool vazia();
-
     // Adiciona uma célula, contendo a string passada através do parâmetro
     // 'item', no final do buffer e incrementa o valor de 'tamanho' em 1
     void enfileira(std::string item);
