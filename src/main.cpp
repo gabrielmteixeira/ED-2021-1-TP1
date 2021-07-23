@@ -11,7 +11,11 @@
 int main (int argc, char* argv[]) {
   std::ifstream entrada(argv[1]);
   std::string texto;
-  getline(entrada, texto);
+  getline(entrada, texto); 
+  if(std::stoi(texto) == 0) {
+    throw("O número de servidores deve ser 1 ou superior");
+  }
+
   Sistema sistema(std::stoi(texto));
   try {
     while(getline(entrada, texto)) {
