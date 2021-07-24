@@ -39,6 +39,10 @@ void Buffer::furaFila(int posicao) {
     celula = celula->prox;
   }
 
+  if(celula == this->tras) {
+    this->tras = anterior;
+  }
+
   anterior->prox = celula->prox;
   celula->prox = this->frente->prox;
   this->frente->prox = celula;
